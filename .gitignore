@@ -1,0 +1,41 @@
+# Разрешу себе сделать универсальный .gitignore для проекта на Python с использованием pytest и Allure
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Virtualenv
+env/
+venv/
+.venv/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Allure
+allure-results/
+
+
+# pytest cache
+.pytest_cache/
+.cache/
+
+# Logs and temp
+*.tmp
+*.bak
+*.swp
+.DS_Store
+
+# System files
+Thumbs.db
+desktop.ini
+
+# Test artifacts (screenshots, videos, etc.)
+screenshots/
+output/
+reports/
