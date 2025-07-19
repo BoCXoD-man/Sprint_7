@@ -1,7 +1,7 @@
 import allure
 import pytest
 from api.order_api import OrderApi
-from helpers.generator import generate_order_payload
+
 
 @allure.epic("Заказы")
 @allure.feature("Получение заказа по трек-номеру")
@@ -11,17 +11,15 @@ class TestGetOrderByTrack:
         self.api = OrderApi()
 
     @allure.title("Успешное получение заказа по трек-номеру")
-    def test_get_order_success(self):
+    def test_get_order_success(self, order_with_cleanup):
         """
         Проверяет успешное получение заказа по валидному трек-номеру.
         """
-        payload = generate_order_payload(["BLACK"])
 
         # Создание заказа
-        create_response = self.api.create_order(payload)
-        assert create_response.status_code == 201, f"Create order failed: {create_response.text}"
-        track = create_response.json().get("track")
-        assert track is not None, f"Track not returned: {create_response.text}"
+        _, track, response = order_with_cleanup
+        assert response.status_code == 201, f"Create order failed: {response.text}"
+        assert track is not None, f"Track not returned: {response.text}"
 
         # Получение заказа по треку
         order_response = self.api.get_order_by_track(track)
@@ -31,9 +29,6 @@ class TestGetOrderByTrack:
         assert "order" in json_data, f"'order' not in response: {json_data}"
         assert json_data["order"]["track"] == track
 
-        # Удаление заказа
-        self.api.cancel_order(track)
-
     @allure.title("Ошибка при неверном трек-номере: {track}")
     @pytest.mark.parametrize(
         "track, expected_status",
@@ -42,7 +37,7 @@ class TestGetOrderByTrack:
             (999999, 404),      # Несуществующий track
         ]
     )
-    def test_get_order_with_invalid_track(self, order_api, track, expected_status):
+    def test_get_order_with_invalid_track(self, track, expected_status):
         """
         Проверяет, что запрос с отсутствующим или несуществующим трек-номером возвращает ошибку.
         Args:
@@ -50,5 +45,6 @@ class TestGetOrderByTrack:
             track (int | None): Трек-номер.
             expected_status (int): Ожидаемый HTTP-статус.
         """
+        order_api = OrderApi()
         response = order_api.get_order_by_track(track)
         assert response.status_code == expected_status
