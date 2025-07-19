@@ -1,7 +1,6 @@
 import random
 import string
 from api.courier_api import CourierApi
-import allure
 
 
 def generate_random_string(length: int) -> str:
@@ -43,6 +42,7 @@ def register_new_courier_and_return_credentials(api = CourierApi()) -> tuple[str
     # Создание курьера и проверка успешности
     response = api.create_courier(login, password, first_name)
     assert response.status_code == 201
+    assert response.json() == {"ok":True}
 
     # Логин для проверки
     login_response = api.login_courier(login, password)

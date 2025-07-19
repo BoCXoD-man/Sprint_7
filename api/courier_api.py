@@ -24,6 +24,33 @@ class CourierApi:
             "firstName": first_name
         }
         return self.session.post(f"{BASE_URL}/api/v1/courier", data=payload)
+    
+    @allure.step("Создание нового курьера с невалидными данными, логин: {login}")
+    def create_wrong_courier(self, login: str, password: str, first_name: str):
+        """
+        Создаёт нового курьера c невалидными данными.
+        Удаляется курьер после создания.
+        Args:
+            login (str): Логин курьера.
+            password (str): Пароль курьера.
+            first_name (str): Имя курьера.
+        Returns:
+            Response: Объект ответа от сервера.
+        """
+        payload = {
+            "login": login,
+            "password": password,
+            "firstName": first_name
+        }
+
+        response = self.session.post(f"{BASE_URL}/api/v1/courier", data=payload)
+
+        if response.status_code == 201:
+            login_response = self.login_courier(login, password)
+            if login_response.status_code == 200 and "id" in login_response.json():
+                courier_id = login_response.json()["id"]
+                self.delete_courier(courier_id)
+        return response
 
     @allure.step("Авторизация курьера с логином: {login}")
     def login_courier(self, login: str, password: str):
