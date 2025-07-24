@@ -1,0 +1,185 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"
+        Проверяет успешное получение заказа по валидному трек-номеру.
+        ","256","Успешное получение заказа по трек-номеру","tests","Sat Jul 19 12:01:46 MSK 2025","passed","Sat Jul 19 12:01:46 MSK 2025","TestGetOrderByTrack","test_order_get_by_track","",""
+"
+        Проверяет, что авторизация с неверным логином вызывает ошибку.
+        После теста удаляет созданного курьера.
+        ","237","Ошибка при неверном логине","tests","Sat Jul 19 12:01:41 MSK 2025","passed","Sat Jul 19 12:01:41 MSK 2025","TestCourierLogin","test_courier_login","",""
+"
+        Проверяет ошибку при удалении курьера с несуществующим ID.
+        Args:
+            courier_api (CourierApi): API клиент.
+        Returns:
+            None
+        ","202","Ошибка при удалении несуществующего ID","tests","Sat Jul 19 12:01:40 MSK 2025","passed","Sat Jul 19 12:01:40 MSK 2025","TestCourierDelete","test_courier_delete","",""
+"
+        Проверяет ошибку при создании курьера без имени.
+        Args:
+            courier_api (CourierApi): API клиент.
+        ","468","Ошибка при создании курьера без имени","tests","Sat Jul 19 12:01:38 MSK 2025","failed","Sat Jul 19 12:01:39 MSK 2025","TestCourierCreate","test_courier_create","",""
+"
+        Проверяет, что авторизация с неправильным логином или паролем вызывает ошибку 404.
+        После теста курьер удаляется через фикстуру.
+        ","209","Ошибка при авторизации с некорректными данными","tests","Sat Jul 19 12:01:43 MSK 2025","passed","Sat Jul 19 12:01:43 MSK 2025","TestCourierLogin","test_courier_login","",""
+"
+        Проверяет, что авторизация с неверным паролем вызывает ошибку.
+        После теста удаляет созданного курьера.
+        Args:
+            courier_api (CourierApi): API клиент.
+            courier_with_cleanup (tuple): Кортеж с данными курьера.
+        ","213","Ошибка при неверном пароле","tests","Sat Jul 19 12:01:42 MSK 2025","passed","Sat Jul 19 12:01:42 MSK 2025","TestCourierLogin","test_courier_login","",""
+"
+        Проверяет, что при отсутствии логина или пароля возвращается ошибка 400.
+        ","229","Ошибка при отсутствии логина или пароля","tests","Thu Jul 17 18:32:39 MSK 2025","passed","Thu Jul 17 18:32:39 MSK 2025","TestCourierLogin","test_courier_login","",""
+"
+        Проверяет, что нельзя создать курьера с тем же логином.
+        После теста курьер удаляется.
+        Args:
+            courier_api (CourierApi): API клиент.
+        ","255","Нельзя создать двух одинаковых курьеров","tests","Sat Jul 19 12:01:37 MSK 2025","passed","Sat Jul 19 12:01:37 MSK 2025","TestCourierCreate","test_courier_create","",""
+"
+        Проверяет создание заказа с указанными цветами или без них.
+        Args:
+            order_api (OrderApi): API клиент.
+            color (list): Список цветов в заказе.
+        ","280","Создание заказа с разными вариантами цвета. Цвета: ['BLACK', 'GREY']","tests","Sat Jul 19 12:01:47 MSK 2025","passed","Sat Jul 19 12:01:48 MSK 2025","TestOrderCreate","test_orders_create","",""
+"
+        Проверяет ошибки при создании курьера без логина или пароля.
+        Args:
+            courier_api (CourierApi): API клиент.
+            login (str): Логин (может быть пустым).
+            password (str): Пароль (может быть пустым).
+            expected_message (str): Ожидаемое сообщение об ошибке.
+        ","198","Ошибка при создании курьера с отсутствующим логином или паролем","tests","Sat Jul 19 12:01:38 MSK 2025","passed","Sat Jul 19 12:01:38 MSK 2025","TestCourierCreate","test_courier_create","",""
+"
+        Проверяет, что при отсутствии логина или пароля возвращается ошибка 400.
+        ","195","Ошибка при отсутствии логина или пароля","tests","Sat Jul 19 12:01:44 MSK 2025","passed","Sat Jul 19 12:01:44 MSK 2025","TestCourierLogin","test_courier_login","",""
+"
+        Проверяет ошибки при создании курьера без логина или пароля.
+        Args:
+            courier_api (CourierApi): API клиент.
+            login (str): Логин (может быть пустым).
+            password (str): Пароль (может быть пустым).
+            expected_message (str): Ожидаемое сообщение об ошибке.
+        ","210","Ошибка при создании курьера с отсутствующим логином или паролем","tests","Thu Jul 17 18:32:35 MSK 2025","passed","Thu Jul 17 18:32:36 MSK 2025","TestCourierCreate","test_courier_create","",""
+"
+        Проверяет успешное удаление ранее зарегистрированного курьера.
+        Args:
+            courier_api (CourierApi): API клиент.
+        Returns:
+            None
+        ","683","Успешное удаление курьера","tests","Sat Jul 19 12:01:39 MSK 2025","passed","Sat Jul 19 12:01:40 MSK 2025","TestCourierDelete","test_courier_delete","",""
+"
+        Проверяет, что при отсутствии логина или пароля возвращается ошибка 400.
+        ","184","Ошибка при отсутствии логина или пароля","tests","Thu Jul 17 18:32:39 MSK 2025","passed","Thu Jul 17 18:32:39 MSK 2025","TestCourierLogin","test_courier_login","",""
+"
+        Проверяет ошибки при некорректном ID заказа (отсутствующий или несуществующий).
+        ","213","Ошибка при некорректном ID заказа","tests","Sat Jul 19 12:01:45 MSK 2025","failed","Sat Jul 19 12:01:46 MSK 2025","TestOrderAccept","test_order_accept","",""
+"
+        Проверяет ошибки при некорректном ID курьера (отсутствующий или несуществующий).
+        Args:
+            order_api (OrderApi): API клиент.
+            order_id (int): ID заказа.
+            courier_id (int | None): ID курьера.
+            expected_status (int): Ожидаемый HTTP-код.
+        Returns:
+            None
+        ","244","Ошибка при некорректном ID курьера","tests","Sat Jul 19 12:01:45 MSK 2025","passed","Sat Jul 19 12:01:45 MSK 2025","TestOrderAccept","test_order_accept","",""
+"
+        Проверяет создание заказа с указанными цветами или без них.
+        Args:
+            order_api (OrderApi): API клиент.
+            color (list): Список цветов в заказе.
+        ","258","Создание заказа с разными вариантами цвета. Цвета: ['BLACK']","tests","Sat Jul 19 12:01:47 MSK 2025","passed","Sat Jul 19 12:01:47 MSK 2025","TestOrderCreate","test_orders_create","",""
+"
+        Проверяет, что курьер успешно создаётся при корректных данных.
+        После теста курьер удаляется.
+        Args:
+            register_and_cleanup_courier : Фикстура: регистрирует нового курьера и удаляет его после теста.
+        ","0","Успешное создание курьера","tests","Sat Jul 19 12:01:37 MSK 2025","passed","Sat Jul 19 12:01:37 MSK 2025","TestCourierCreate","test_courier_create","",""
+"
+        Проверяет, что курьер может авторизоваться при корректных данных.
+        После теста удаляет созданного курьера.
+        Args:
+            courier_api (CourierApi): API клиент.
+            courier_with_cleanup (tuple): Кортеж с данными курьера.
+        ","231","Успешная авторизация курьера","tests","Sat Jul 19 12:01:40 MSK 2025","passed","Sat Jul 19 12:01:41 MSK 2025","TestCourierLogin","test_courier_login","",""
+"
+        Проверяет ошибки при создании курьера без логина или пароля.
+        Args:
+            courier_api (CourierApi): API клиент.
+            login (str): Логин (может быть пустым).
+            password (str): Пароль (может быть пустым).
+            expected_message (str): Ожидаемое сообщение об ошибке.
+        ","353","Ошибка при создании курьера с отсутствующим логином или паролем","tests","Sat Jul 19 12:01:38 MSK 2025","passed","Sat Jul 19 12:01:38 MSK 2025","TestCourierCreate","test_courier_create","",""
+"
+        Проверяет ошибки при создании курьера без логина или пароля.
+        Args:
+            courier_api (CourierApi): API клиент.
+            login (str): Логин (может быть пустым).
+            password (str): Пароль (может быть пустым).
+            expected_message (str): Ожидаемое сообщение об ошибке.
+        ","246","Ошибка при создании курьера с отсутствующим логином или паролем","tests","Thu Jul 17 18:32:35 MSK 2025","passed","Thu Jul 17 18:32:35 MSK 2025","TestCourierCreate","test_courier_create","",""
+"
+        Проверяет, что при отсутствии логина или пароля возвращается ошибка 400.
+        ","203","Ошибка при отсутствии логина или пароля","tests","Sat Jul 19 12:01:43 MSK 2025","passed","Sat Jul 19 12:01:44 MSK 2025","TestCourierLogin","test_courier_login","",""
+"
+        Проверяет, что авторизация с неправильным логином или паролем вызывает ошибку 404.
+        После теста курьер удаляется через фикстуру.
+        ","332","Ошибка при авторизации с некорректными данными","tests","Sat Jul 19 12:01:42 MSK 2025","passed","Sat Jul 19 12:01:43 MSK 2025","TestCourierLogin","test_courier_login","",""
+"
+        Проверяет ошибки при некорректном ID заказа (отсутствующий или несуществующий).
+        ","295","Ошибка при некорректном ID заказа","tests","Sat Jul 19 12:01:46 MSK 2025","passed","Sat Jul 19 12:01:46 MSK 2025","TestOrderAccept","test_order_accept","",""
+"
+        Проверяет ошибку при попытке удалить курьера без указания ID.
+        Args:
+            courier_api (CourierApi): API клиент.
+        Returns:
+            None
+        ","223","Ошибка при удалении без ID (ручка требует ID в пути)","tests","Sat Jul 19 12:01:40 MSK 2025","passed","Sat Jul 19 12:01:40 MSK 2025","TestCourierDelete","test_courier_delete","",""
+"
+        Проверяет ошибки при некорректном ID курьера (отсутствующий или несуществующий).
+        Args:
+            order_api (OrderApi): API клиент.
+            order_id (int): ID заказа.
+            courier_id (int | None): ID курьера.
+            expected_status (int): Ожидаемый HTTP-код.
+        Returns:
+            None
+        ","219","Ошибка при некорректном ID курьера","tests","Sat Jul 19 12:01:45 MSK 2025","passed","Sat Jul 19 12:01:45 MSK 2025","TestOrderAccept","test_order_accept","",""
+"
+        Проверяет создание заказа с указанными цветами или без них.
+        Args:
+            order_api (OrderApi): API клиент.
+            color (list): Список цветов в заказе.
+        ","271","Создание заказа с разными вариантами цвета. Цвета: []","tests","Sat Jul 19 12:01:48 MSK 2025","passed","Sat Jul 19 12:01:48 MSK 2025","TestOrderCreate","test_orders_create","",""
+"
+        Проверяет успешное принятие заказа курьером.
+        Args:
+            courier_api (CourierApi): API клиент.
+            order_api (OrderApi): API клиент.
+        ","375","Успешное принятие заказа","tests","Sat Jul 19 12:01:44 MSK 2025","passed","Sat Jul 19 12:01:45 MSK 2025","TestOrderAccept","test_order_accept","",""
+"
+        Проверяет, что возвращается список заказов.
+        ","3035","Получение списка заказов","tests","Sat Jul 19 12:01:48 MSK 2025","passed","Sat Jul 19 12:01:51 MSK 2025","TestOrderList","test_orders_list","",""
+"
+        Проверяет создание заказа с указанными цветами или без них.
+        Args:
+            order_api (OrderApi): API клиент.
+            color (list): Список цветов в заказе.
+        ","262","Создание заказа с разными вариантами цвета. Цвета: ['GREY']","tests","Sat Jul 19 12:01:47 MSK 2025","passed","Sat Jul 19 12:01:47 MSK 2025","TestOrderCreate","test_orders_create","",""
+"
+        Проверяет, что запрос с отсутствующим или несуществующим трек-номером возвращает ошибку.
+        Args:
+            order_api (OrderApi): API клиент.
+            track (int | None): Трек-номер.
+            expected_status (int): Ожидаемый HTTP-статус.
+        ","266","Ошибка при неверном трек-номере: 999999","tests","Sat Jul 19 12:01:47 MSK 2025","passed","Sat Jul 19 12:01:47 MSK 2025","TestGetOrderByTrack","test_order_get_by_track","",""
+"
+        Проверяет, что запрос с отсутствующим или несуществующим трек-номером возвращает ошибку.
+        Args:
+            order_api (OrderApi): API клиент.
+            track (int | None): Трек-номер.
+            expected_status (int): Ожидаемый HTTP-статус.
+        ","234","Ошибка при неверном трек-номере: None","tests","Sat Jul 19 12:01:46 MSK 2025","passed","Sat Jul 19 12:01:47 MSK 2025","TestGetOrderByTrack","test_order_get_by_track","",""

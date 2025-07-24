@@ -1,0 +1,5 @@
+pytest==8.2.1
+allure-pytest==2.13.2
+requests==2.32.3
+pytest-xdist==3.6.1
+pytest-html==4.1.1
